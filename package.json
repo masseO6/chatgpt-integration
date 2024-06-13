@@ -15,6 +15,10 @@
             {
                 "command": "chatgpt-integration.askChatGPT",
                 "title": "Ask ChatGPT"
+            },
+            {
+                "command": "chatgpt-integration.modifyText",
+                "title": "Modify Code"
             }
         ]
     },

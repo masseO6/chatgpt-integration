@@ -3,16 +3,38 @@ import axios from 'axios';
 
 export function activate(context: vscode.ExtensionContext) {
 
-    let disposable = vscode.commands.registerCommand('chatgpt-integration.askChatGPT', async () => {
-        const prompt = await vscode.window.showInputBox({ prompt: 'Ask ChatGPT a question' });
+    let askChatGPTDisposable = vscode.commands.registerCommand('chatgpt-integration.askChatGPT', async () => {
+        const prompt = await vscode.window.showInputBox({ prompt: 'Fai una domanda a ChatGPT' });
 
         if (prompt) {
             const response = await getChatGPTResponse(prompt);
             vscode.window.showInformationMessage(response);
         }
     });
+    let modifyTextDisposable = vscode.commands.registerCommand('chatgpt-integration.modifyText', async () => {
+        const prompt = await vscode.window.showInputBox({ prompt: 'Che modifica vuoi fare?' });
+        const editor = vscode.window.activeTextEditor;
+        if (!editor) {
+            vscode.window.showErrorMessage('Nessun editor attivo.');
+            return;
+        }
 
-    context.subscriptions.push(disposable);
+        const document = editor.document;
+        const selection = editor.selection;
+        const selectedText = document.getText(selection);
+        if (prompt) {
+            const response = await getChatGPTResponse(prompt);
+            vscode.window.showInformationMessage(response);
+             const modifiedText = response;
+        if (modifiedText !== undefined) {
+            editor.edit(editBuilder => {
+                editBuilder.replace(selection, modifiedText);
+            });
+        }
+        }
+    });
+
+    context.subscriptions.push(askChatGPTDisposable, modifyTextDisposable);
 }
 
 export function deactivate() {}
