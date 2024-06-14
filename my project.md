@@ -13,5 +13,7 @@ Così aprendo una nuova finestra siamo riusciti ad attivare una scermata di Vs c
 Dopo esser riusciti a far funzionare l'estensione di chat gpt su vs code permettendoci di farle richieste abbiamo implementato un ulteriore modulo che ci permettesse anche di far modificare all'ai un determinato testo selezionato per poi riscriverlo nel codice.
 ### 3. IL DEBUGGING
 Non capendo subito perchè si presentasse questo errore ci siamo documentati per poi scoprire che sul packae.json l'indirizzo del file che conteneva la funzione era sbagliato e dopo averlo corretto il comando richiamava la funzione però non riusciva a connettersi ai server dell'ai perchè non avevamo ancora la api key per avere l'accesso ai server di chat gpt.
-Il secondo grosso problema che abbiamo riscontrato riguardava il funzionamento dell'API key che non ci permetteva di connetterci ai server di open ai così abbiamo contattato l'assistenza per risolvere questo problema e
+Il secondo grosso problema che abbiamo riscontrato riguardava il funzionamento dell'API key che non ci permetteva di connetterci ai server di open ai così abbiamo contattato l'assistenza per risolvere questo problema e abbiamo scoperto che le api key sono tutte a pagamento.
+quindi al posto di continuare a sviluppare il modulo abbiamo iniziato a studiare altre alternative visto ch in ogni caso avremmo dovuto comprare un piano di abbonamento.
+abbiamo iniziato con amazon Q, ma non eravamo soddisfatti della precisione delle risposte, così abbiamo iniziato ad usare la chat già integrata in vs codo di copilot che sembra essere un ottimo prodotto.
 ## IL RISULTATO
